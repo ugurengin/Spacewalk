@@ -18,7 +18,7 @@ client = connect.Server(SATELLITE_URL, verbose=0)
 key = client.auth.login(SATELLITE_LOGIN, SATELLITE_PASSWORD)
 
 def get_sys_id():
-    sys_id = client.system.getId(key, "{{ grains['id'] }}")
+    sys_id = client.system.getId(key, "<sys-name>")
     rhn_id = sys_id[0]['id']
     if isinstance(rhn_id, int):
         return rhn_id
